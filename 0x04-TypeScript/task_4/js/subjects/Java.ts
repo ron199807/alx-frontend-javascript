@@ -1,8 +1,8 @@
+/// <reference path="./Subject.ts" />
+
 namespace Subjects {
   export interface Teacher {
-    firstName: string;
-    lastName: string;
-    experienceTeachingJava?: number; // Declaration merging
+    experienceTeachingJava?: number;
   }
 
   export class Java extends Subject {
@@ -11,7 +11,7 @@ namespace Subjects {
     }
 
     getAvailableTeacher(): string {
-      if (this.teacher.experienceTeachingJava) {
+      if (this.teacher.experienceTeachingJava && this.teacher.experienceTeachingJava > 0) {
         return `Available Teacher: ${this.teacher.firstName}`;
       }
       return "No available teacher";

@@ -1,8 +1,8 @@
+/// <reference path="./Subject.ts" />
+
 namespace Subjects {
   export interface Teacher {
-    firstName: string;
-    lastName: string;
-    experienceTeachingReact?: number; // Declaration merging
+    experienceTeachingReact?: number;
   }
 
   export class React extends Subject {
@@ -11,7 +11,7 @@ namespace Subjects {
     }
 
     getAvailableTeacher(): string {
-      if (this.teacher.experienceTeachingReact) {
+      if (this.teacher.experienceTeachingReact && this.teacher.experienceTeachingReact > 0) {
         return `Available Teacher: ${this.teacher.firstName}`;
       }
       return "No available teacher";
